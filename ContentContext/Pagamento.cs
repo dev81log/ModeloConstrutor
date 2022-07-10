@@ -1,10 +1,10 @@
 using ModeloConstrutor.Enum;
+
 namespace ModeloConstrutor.ContentContext
 {
     public class Pagamento
     {
         public Pagamento() { }
-
         public Pagamento(int IdFormacaoCurso)
         {
             IdCurso = IdFormacaoCurso;
@@ -16,19 +16,12 @@ namespace ModeloConstrutor.ContentContext
         private int IdCurso { get; set; }
         private decimal Valor { get; set; }
 
-
-        // Método que retorna se o pagamento foi realizado ou não que é passado pelo estudante
         public bool IsPago(DateTime mensalidade)
         {
             if (mensalidade.Month == DataPagamento.Month)
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
-
         }
 
         public decimal FormacaoValor(int idCursoSelecionado)
@@ -51,8 +44,5 @@ namespace ModeloConstrutor.ContentContext
             }
             return 0;
         }
-
     }
-
-
 }

@@ -4,8 +4,6 @@ namespace ModeloConstrutor.ContentContext
 {
     public class Estudante
     {
-        Pagamento pagamento = new Pagamento();
-
         public Estudante(DateTime inscricao, string nome, string email, EFormacaoCursos formacao)
         {
             IdEstudante = Guid.NewGuid();
@@ -14,6 +12,8 @@ namespace ModeloConstrutor.ContentContext
             Formacao = formacao;
             Mensalidade = inscricao;
         }
+
+        Pagamento pagamento = new Pagamento();
 
         private Guid IdEstudante { get; set; }
         private bool MensalidadePaga => pagamento.IsPago(Mensalidade);
@@ -41,5 +41,4 @@ namespace ModeloConstrutor.ContentContext
             return $"Id: {IdEstudante}\nMensalidade Paga? {Resposta}\nInscrição: {Mensalidade}\nNome: {Nome}\nEmail: {Email}\nCurso: {Formacao}\nValor Mensalidade: {ValorMensalidade}";
         }
     }
-
 }
